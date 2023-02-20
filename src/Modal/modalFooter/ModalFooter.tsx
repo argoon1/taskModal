@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { ModalContextType, ModalContext } from "../ModalContext";
+import styles from "./ModalFooter.module.css";
 interface ModalFooterProps {
   callToActionLabel: string;
   isInModal?: boolean;
@@ -15,7 +16,7 @@ export class ModalFooter extends Component<ModalFooterProps> {
     }
     if (isInModal)
       return (
-        <footer>
+        <footer className={styles.modalFooter}>
           <button onClick={toggle}> closeModal</button>
           <button onClick={callToAction}> {callToActionLabel}</button>
         </footer>

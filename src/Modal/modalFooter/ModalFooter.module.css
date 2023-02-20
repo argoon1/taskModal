@@ -1,0 +1,7 @@
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+}
+.modalFooter > button {
+  margin: 0px 3px;
+}

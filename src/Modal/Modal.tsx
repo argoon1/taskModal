@@ -8,6 +8,7 @@ interface ModalProps {
   children: React.ReactNode;
 }
 const { Provider } = ModalContext;
+type ModalStateType = { isOpen: boolean };
 export class Modal extends React.Component<ModalProps> {
   static Footer = ModalFooter;
   static Header = ModalHeader;
@@ -17,9 +18,12 @@ export class Modal extends React.Component<ModalProps> {
   };
 
   toggle = () => {
-    this.setState((prevIsOpen) => ({
-      isOpen: !prevIsOpen,
-    }));
+    this.setState((prevIsOpen) => {
+      const { isOpen } = prevIsOpen as ModalStateType;
+      return {
+        isOpen: !isOpen,
+      };
+    });
   };
 
   render() {
@@ -38,6 +42,10 @@ export class Modal extends React.Component<ModalProps> {
           </div>
         </Provider>
       );
-    return null;
+    return (
+      <button onClick={this.toggle} className={styles.showModalBtn}>
+        show modal{" "}
+      </button>
+    );
   }
 }

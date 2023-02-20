@@ -25,3 +25,7 @@
 .modalBody button {
   cursor: pointer;
 }
+.showModalBtn {
+  font-size: 25px;
+  cursor: pointer;
+}
